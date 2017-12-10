@@ -5,12 +5,7 @@ public class Div extends Operator {
 	}
 
 	@Override
-	public double evaluate(Context C) {
-		return opL.evaluate(C) / opR.evaluate(C);
-	}
-
-	@Override
-	public String symbol() {
+	public String getSymbol() {
 		return " / ";
 	}
 	

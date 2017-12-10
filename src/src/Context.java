@@ -7,12 +7,12 @@ public class Context {
 		this.C = C;
 	}
 	
-	public int find(String var) {
+	public double find(String name) {
 		int i = 0;
 
-		while(!this.C[i][0].equals(var))
+		while(!this.C[i][0].equals(name))
 			i++;
 		
-		return Integer.parseInt(this.C[i][1]);
+		return Double.parseDouble(this.C[i][1]);
 	}
 }

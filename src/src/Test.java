@@ -3,25 +3,24 @@ package src;
 public class Test {
 	public static void main(String args[]) {
 		String[][] Cont = {{"x", "5"},{"y", "2"}};
-		Context C = new Context(Cont);
+		Context c = new Context(Cont);
+		StringVisitor stringVisitor = new StringVisitor();
+		EvaluateVisitor evaluateVisitor = new EvaluateVisitor(c);
 		
-		Const v9 = new Const(9);
-		Variable v5 = new Variable("x");
-		Plus plus = new Plus(v5, v9);
-		Const v5b = new Const(5);
-		Const v3 = new Const(3);
-		Minus moins = new Minus(v5b, v3);
+		Const c1 = new Const(9);
+		Variable v1 = new Variable("x");
+		Plus plus = new Plus(c1, v1);
+		Const c2 = new Const(5);
+		Const c3 = new Const(3);
+		Minus moins = new Minus(c2, c3);
 		Div div = new Div(plus, moins);
 		
-		NodeIterator n = div.getPostFixe();
+		System.out.println((new Variable("y")).accept(evaluateVisitor));
 		
-		while(n.hasNext())
-			System.out.println(n.next().toString());
-		
-		if(div.evaluate(C) == 7)
+		if((Double)div.accept(evaluateVisitor) == 7)
 			System.out.println("Expr ok");
 		else System.out.println("Expr failed");
 
-		System.out.println((String)div.accept(new StringVisitor()).toString());
+		System.out.println((String)div.accept(stringVisitor));
 	}
 }

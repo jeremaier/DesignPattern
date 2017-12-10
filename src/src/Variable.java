@@ -10,16 +10,6 @@ public class Variable implements Exp {
 	}
 	
 	@Override
-	public double evaluate(Context C) {
-		return C.find(this.name);
-	}
-
-	@Override
-	public String toString() {
-		return this.name;
-	}
-	
-	@Override
 	public NodeIterator getPostFixe() {
 		return new NodeIterator() {
 			boolean first = true;
@@ -42,5 +32,9 @@ public class Variable implements Exp {
 	@Override
 	public Object accept(Visitor v) {
 		return v.visit(this);
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 }

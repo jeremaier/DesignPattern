@@ -8,26 +8,26 @@ public class EvaluateVisitor extends Visitor {
 	}
 	
 	public Object visit(Variable v) {
-		return v.evaluate(co);
+		return co.find(v.getName());
 	}
 	
 	public Object visit(Const c) {
-		return c.evaluate(co);
+		return c.getVal();
 	}
 	
 	public Object visit(Plus p) {
-		return p.evaluate(co);
+		return (double)p.getOpL().accept(this) + (double)p.getOpR().accept(this);
 	}
 	
 	public Object visit(Minus m) {
-		return m.evaluate(co);
+		return (double)m.getOpL().accept(this) - (double)m.getOpR().accept(this);
 	}
 	
 	public Object visit(Mult m) {
-		return m.evaluate(co);
+		return (double)m.getOpL().accept(this) * (double)m.getOpR().accept(this);
 	}
 	
 	public Object visit(Div d) {
-		return d.evaluate(co);
+		return (double)d.getOpL().accept(this) / (double)d.getOpR().accept(this);
 	}
 }

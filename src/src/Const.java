@@ -10,16 +10,6 @@ public class Const implements Exp {
 	}
 	
 	@Override
-	public double evaluate(Context C) {
-		return this.val;
-	}
-	
-	@Override
-	public String toString() {
-		return Double.toString(this.val);
-	}
-	
-	@Override
 	public NodeIterator getPostFixe() {
 		return new NodeIterator() {
 			boolean first = true;
@@ -42,5 +32,9 @@ public class Const implements Exp {
 	@Override
 	public Object accept(Visitor v) {
 		return v.visit(this);
+	}
+	
+	public double getVal() {
+		return this.val;
 	}
 }

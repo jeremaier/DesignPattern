@@ -2,26 +2,26 @@ package src;
 
 public class StringVisitor extends Visitor {
 	public Object visit(Variable v) {
-		return v.toString();
+		return v.getName();
 	}
 
 	public Object visit(Const c) {
-		return c.toString();
+		return c.getVal();
 	}
 	
 	public Object visit(Plus p) {
-		return p.getfg().accept(this) + " " + p.getfd().accept(this) + p.symbol();
+		return p.getOpL().accept(this) + " " + p.getOpR().accept(this) + p.getSymbol();
 	}
 	
 	public Object visit(Minus m) {
-		return m.getfg().accept(this) + " " + m.getfd().accept(this) + m.symbol();
+		return m.getOpL().accept(this) + " " + m.getOpR().accept(this) + m.getSymbol();
 	}
 	
 	public Object visit(Mult m) {
-		return m.getfg().accept(this) + " " + m.getfd().accept(this) + m.symbol();
+		return m.getOpL().accept(this) + " " + m.getOpR().accept(this) + m.getSymbol();
 	}
 
 	public Object visit(Div d) {
-		return d.getfg().accept(this) + " " + d.getfd().accept(this) + d.symbol();
+		return d.getOpL().accept(this) + " " + d.getOpR().accept(this) + d.getSymbol();
 	}
 }

@@ -10,11 +10,6 @@ public abstract class Operator implements Exp {
 		this.opL = opL;
 		this.opR = opR;
 	}
-		
-	@Override
-	public String toString() {
-		return "(" + this.opL.toString() + this.symbol() + this.opR.toString() + ")";
-	}
 	
 	public NodeIterator getPostFixe(){
 		return new NodeIterator() {
@@ -38,14 +33,13 @@ public abstract class Operator implements Exp {
 		};
 	}
 	
-	public Exp getfd() {
+	public Exp getOpL() {
 		return this.opL;
 	}
 	
-	public Exp getfg() {
+	public Exp getOpR() {
 		return this.opR;
 	}
 
-	public abstract double evaluate(Context C);
-	public abstract String symbol();
+	public abstract String getSymbol();
 }
