@@ -1,6 +1,6 @@
 package src;
 
-public class VisitToPostFixe extends Visitor {
+public class StringVisitor extends Visitor {
 	public Object visit(Variable v) {
 		return v.toString();
 	}

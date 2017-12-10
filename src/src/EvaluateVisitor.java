@@ -1,9 +1,9 @@
 package src;
 
-public class VisitEvaluate extends Visitor {
+public class EvaluateVisitor extends Visitor {
 	private Context co;
 	
-	public VisitEvaluate(Context co) {
+	public EvaluateVisitor(Context co) {
 		this.co = co;
 	}
 	

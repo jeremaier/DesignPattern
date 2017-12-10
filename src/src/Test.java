@@ -18,14 +18,10 @@ public class Test {
 		while(n.hasNext())
 			System.out.println(n.next().toString());
 		
-		int expectValue = 7;
-		
-		if(expectValue == div.evaluate(C))
+		if(div.evaluate(C) == 7)
 			System.out.println("Expr ok");
 		else System.out.println("Expr failed");
-		
-		Visitor v = new VisitToPostFixe();
-		String res = (String)div.accept(v);
-		System.out.println(res.toString());
+
+		System.out.println((String)div.accept(new StringVisitor()).toString());
 	}
 }
