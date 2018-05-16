@@ -1,1 +1,1 @@
-# design-pattern-lab-2017-jeremaier
+# design-pattern-lab-2017
